@@ -49,15 +49,11 @@ namespace Client.ServiceReference1 {
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
         public string fam;
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
-        public string subname;
-        
         public SearchStudentRequestBody() {
         }
         
-        public SearchStudentRequestBody(string fam, string subname) {
+        public SearchStudentRequestBody(string fam) {
             this.fam = fam;
-            this.subname = subname;
         }
     }
     
@@ -127,11 +123,10 @@ namespace Client.ServiceReference1 {
             return base.Channel.SearchStudent(request);
         }
         
-        public string SearchStudent(string fam, string subname) {
+        public string SearchStudent(string fam) {
             Client.ServiceReference1.SearchStudentRequest inValue = new Client.ServiceReference1.SearchStudentRequest();
             inValue.Body = new Client.ServiceReference1.SearchStudentRequestBody();
             inValue.Body.fam = fam;
-            inValue.Body.subname = subname;
             Client.ServiceReference1.SearchStudentResponse retVal = ((Client.ServiceReference1.WebService1Soap)(this)).SearchStudent(inValue);
             return retVal.Body.SearchStudentResult;
         }
@@ -141,11 +136,10 @@ namespace Client.ServiceReference1 {
             return base.Channel.SearchStudentAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Client.ServiceReference1.SearchStudentResponse> SearchStudentAsync(string fam, string subname) {
+        public System.Threading.Tasks.Task<Client.ServiceReference1.SearchStudentResponse> SearchStudentAsync(string fam) {
             Client.ServiceReference1.SearchStudentRequest inValue = new Client.ServiceReference1.SearchStudentRequest();
             inValue.Body = new Client.ServiceReference1.SearchStudentRequestBody();
             inValue.Body.fam = fam;
-            inValue.Body.subname = subname;
             return ((Client.ServiceReference1.WebService1Soap)(this)).SearchStudentAsync(inValue);
         }
     }

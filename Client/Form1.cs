@@ -19,7 +19,7 @@ namespace Client
 		ServiceReference1.WebService1SoapClient client = new ServiceReference1.WebService1SoapClient();
 		private void button1_Click(object sender, EventArgs e)
 		{
-            label2.Text = client.SearchStudent(textBox1);
+            label2.Text = client.SearchStudent(textBox1.Text);
 		}
 	}
 }
